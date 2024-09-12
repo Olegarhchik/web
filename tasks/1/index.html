@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1</title>
+</head>
+<body>
+    <h1 id="fragment-page">Задание 1</h1>
+
+    <ul>
+        <li><a href="http://kubsu.ru">КубГУ (абсолютная гиперссылка)</a></li>
+        <li><a href="https://kubsu.ru">КубГУ (гиперссылка с протоколом https)</a></li>
+        <li><a href="https://kubsu.ru"><img src="img/image.jpg" width="600" alt="Цветок"></a></li>
+        <!-- Не указывал / в начале сокращенных ссылок, т.к. не открывается ни одна страница при таком способе записи-->
+        <li><a href="v-page.html">Сокращенная ссылка на внутреннюю страницу</a></li>
+        <li><a href="index.html">Сокращенная ссылка на главную страницу</a></li>
+        <li><a href="#fragment-page">Ссылка на фрагмент текущей страницы</a></li>
+        <li><a href="index.html?p1=v1&?p2=v2&?p3=v3">Ссылка с тремя параметрами в URL</a></li>
+        <li><a href="index.html?id=fragment-page">Ссылка с параметром id в URL</a></li>
+        <li><a href="curr-directory-page.html">Относительная ссылка на страницу в текущем каталоге</a></li>
+        <li><a href="about/about.html">Относительная ссылка на страницу в каталоге about</a></li>
+        <li><a href="../tasks.html">Ссылка на страницу в каталоге уровня выше текущей</a></li>
+        <li><a href="../../web.html">Ссылка на страницу в каталоге двумя уровнями выше текущей</a></li>
+        <li><p> Контекстная ссылка: <br>
+            <a href="https://loremipsum.io/ru">Lorem ipsum</a> dolor sit amet consectetur adipisicing elit.
+        </p></li>
+        <li><a href="https://kubsu.ru/index.php#block-system-main">Ссылка на фрагмент страницы стороннего сайта</a></li>
+        <li>
+            <map name="primary">
+                <area shape="rect" coords="25,546,344,644" href="https://kubsu.ru/index.php" alt="Сайт университета">
+                <area shape="circle" coords="921,594,50" href="https://t.me/kubsunews" alt="Канал телеграм">
+            </map>
+            <img usemap="#primary" src="img/bg.jpg" alt="Фото главного корпуса">
+        </li>
+        <li><a href="">Ссылка с пустым href</a></li>
+        <li><a>Ссылка без href</a></li>
+        <li><a href="https://kubsu.ru" rel="nofollow">Ссылка, по которой запрещен переход поисковиками</a></li>
+        <li><a href="https://kubsu.ru" rel="noindex">Ссылка, запрещенная для индексации поисковиками</a></li>
+        <li>
+            <ol>
+                <li><a href="https://kubsu.ru" title="Это сайт КубГУ">Наведи на меня</a></li>
+                <li><a href="" title="Что-то еще">...</a></li>
+            </ol>
+        </li>
+        <li><a href="ftp://login:password@example.com/file.txt">Ссылка на файл на сервере FTP с авторизацией</a></li>
+    </ul>
+
+    <form action="test@example.com">
+        <label>ФИО: <input type="text"><br></label>
+        <label>Телефон: <input type="tel"><br></label>
+        <label>E-mail: <input type="email"><br></label>
+        <label>Дата рождения: <input type="date"><br></label>
+
+        <label>Пол:</label>
+        <label><input type="radio" name="gender">М</label>
+        <label><input type="radio" name="gender">Ж<br></label>
+
+        <label>
+            Любимый язык программирования: 
+            <select name="prog-lang" id="prog-lang">
+                <option value="">JavaScript</option>
+                <option value="">PHP</option>
+                <option value="">Python</option>
+                <option value="">Java</option>
+                <option value="">Pascal</option>
+                <option value="">С</option>
+                <option value="">С++</option>
+                <option value="">Haskel</option>
+                <option value="">Clojure</option>
+                <option value="">Prolog</option>
+                <option value="">Scala</option>
+            </select><br>
+        </label>
+
+        <label>
+            Биография:<br>
+            <textarea name="bio" id="bio"></textarea><br>
+        </label>
+        
+        <label><input type="checkbox">С контрактом ознакомлен(-а)</label><br>
+        <input type="submit" value="Сохранить">
+    </form>
+</body>
+</html>
