@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+body, h1, h2, h3, ul, ol, p {
+    margin: 0;
+    padding: 0;
+}
+
+a, p, input {
+    font-weight: 500;
+}
+
+main {
+    min-height: calc(100vh - 200px);
+}
+
+li {
+    list-style: none;
+}
+
+/* Header */
+
+nav {
+    float: right;
+}
+
+.nav > li {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.nav > li > a {
+    padding: 5px 20px;
+    border-radius: 20px;
+
+    font-weight: 500;
+    color: #FFF;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav > li > a:hover {
+    transition: all linear .2s;
+}
+
+.menu:hover > a, .nav > li > a:hover {
+    background-color: #FFF;
+    color: #0350a0;
+}
+
+.menu {
+    position: relative;
+}
+
+.menu li:first-child {
+    margin-top: 10px;
+}
+
+.menu li {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.menu:hover ul {
+    text-align: center;
+    display: block;
+    position: absolute;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom: #000 solid 1px;
+}
+
+.menu:hover > a {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.drop-down-menu {
+    padding: 0 15px;
+    display: none;
+    background-color: #FFF;
+}
+
+.drop-down-menu a {
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.drop-down-menu a:hover {
+    text-decoration: none;
+    transition: all linear .2s;
+}
+
+header, footer {
+    background-color: #0350a0;
+    padding: 20px 30px;
+    color: #FFF;
+}
+
+header {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+img.logo {
+    float: left;
+    margin-right: 20px;
+    height: 60px;
+}
+
+/* Login */
+
+.login {
+    opacity: 0;
+    pointer-events: none;
+
+    background-color: rgba(0, 0, 0, 0.8);
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+}
+
+.login:target {
+    opacity: 1;
+    pointer-events: auto;
+    overflow-y: hidden;
+
+    transition: all linear .2s;
+}
+
+.login .wrapper {
+    position: relative;
+    max-width: 500px;
+    max-height: 600px;
+    margin: 0 auto;
+    margin-top: 25vh;
+}
+
+.login form {
+    padding: 50px 80px;
+    background-color: #fff;
+    border-radius: 25px;
+}
+
+.close svg {
+    vertical-align: middle;
+}
+
+.close path {
+    fill: #0350a0;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    padding: 5px 5px;
+    border: solid 1px #0350a0;
+    border-radius: 50%;
+}
+
+.close:hover {
+    background-color: #0350a0;
+
+    transition: all linear .2s;
+}
+
+.close:hover path {
+    fill: #FFF;
+}
+
+.login h1 {
+    text-align: center;
+    color: #0350a0;
+    margin-bottom: 50px;
+}
+
+.login input:not([type='submit']) {
+    font-size: 16px;
+    color: #0350a0;
+
+    border: 0;
+    border-bottom: 3px solid #0350a0;
+    width: 100%;
+}
+
+.login input:focus {
+    outline: none;
+    background-color: #ddeeff;
+}
+
+.login p:not(.error) {
+    color: #0350a0;
+
+    margin-top: 25px;
+}
+
+.login input[type='submit'] {
+    background-color: #FFF;
+    border-radius: 20px;
+    border: 1px solid #0350a0;
+
+    color: #0350a0;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    display: block;
+    margin: 25px auto 0;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.login input[type='submit']:hover {
+    background-color: #0350a0;
+    color: #FFF;
+
+    transition: all linear .2s;
+}
+
+p.error {
+    color: #f00;
+    font-size: 14px;
+}
+
+/* Table */
+
+.applied {
+    border-collapse: collapse;
+    margin: 0 auto;
+
+    width: 60%;
+}
+
+.applied td, .applied th {
+    border: 1px solid #fff;
+    padding: 5px;
+    text-align: center;
+}
+
+.applied tbody tr:nth-child(2n-1) {
+    background-color: #badbff;
+}
+
+.applied thead tr {
+    background-color: #95b1cf;
+    color: #fff;
+}
+
+/* Main */
+
+main {
+    margin: 0 auto;
+    width: 960px;
+}
+
+/* Abitur Info */
+
+.abitur-info {
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px 1px #2990ff;
+}
+
+h2, h3 {
+    margin-bottom: 20px;
+}
+
+.warning {
+    border: 2px solid #0350a0;
+    border-radius: 20px;
+
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.warning h3 {
+    text-align: center;
+}
+
+/* News */
+
+.news {
+    float: right;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 20px;
+    height: 20px;
+    font-weight: 700;
+}
