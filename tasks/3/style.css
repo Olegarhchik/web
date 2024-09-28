@@ -531,6 +531,7 @@ footer {
 @media (min-width: 1280px) {
     header h1 {
         max-width: none;
+        font-size: 24px;
     }
 
     #drop-down-menu-toggle:checked ~ ul {
