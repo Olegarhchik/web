@@ -221,7 +221,7 @@ function addToCart(elem, product) {
         cartCounter.style.display = "inline-block";
     }
 
-    if (i !== -1)
+    if (i != -1)
         cartData[i].quantity += product.quantity;
     
     elem.closest("tr").previousElementSibling.querySelector("input[type='number']").value = "1";
@@ -308,6 +308,15 @@ function fillCartContent() {
     cartData.forEach((product, i) => {
         if (product.added) {
             updData(cartElements[i], product);
+
+            const minus = cartElements[i].querySelector("svg:first-child");
+            const bin = cartElements[i].querySelector("svg.bin");
+
+            if (product.quantity > 1 && minus.classList.contains("hidden")) {
+                bin.classList.add("hidden");
+                minus.classList.remove("hidden");
+            }
+
             return;
         };
 
@@ -399,4 +408,3 @@ function fillCartContent() {
 
     updData();
 }
-
