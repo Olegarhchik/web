@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a, p, input {
+    font-weight: 500;
+}
+
+main {
+    min-height: calc(100vh - 150px);
+}
+
+body, main {
+    position: relative;
+    z-index: -3;
+}
+
+body:has(#burger-toggle:checked) {
+    overflow: hidden;
+}
+
+body:has(#login:target) {
+    overflow: hidden;
+}
+
+header {
+    padding: 10px 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #0350a0;
+    color: #fff;
+}
+
+header h1 {
+    font-size: 18px;
+    text-align: center;
+
+    max-width: 200px;
+}
+
+.logo {
+    height: 50px;
+    margin-right: 15px;
+}
+
+/* Burger */
+
+#burger-toggle, #drop-down-menu-toggle {
+    display: none;
+}
+
+.burger {
+    position: relative;
+
+    height: 25px;
+    width: 30px;
+    min-width: 30px;
+
+    margin-left: 55px;
+}
+
+.burger::after, .burger::before, .burger span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+
+    transition: all linear .3s;
+}
+
+.burger::before {
+    content: "";
+    top: 0;
+}
+
+.burger::after {
+    content: "";
+    bottom: 0;
+}
+
+.burger span {
+    top: 11px;
+}
+
+#burger-toggle:checked ~ .burger::after {
+    transform: rotate(45deg);
+    bottom: 10px;
+}
+
+#burger-toggle:checked ~ .burger span {
+    width: 0;
+}
+
+#burger-toggle:checked ~ .burger::before {
+    transform: rotate(-45deg);
+    top: 12px;
+}
+
+nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: -100vh;
+    z-index: -2;
+
+    background-color: #004794;
+    text-align: center;
+
+    transition: all ease-in-out .5s;
+}
+
+nav a, nav label {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+
+    transition: all linear .3s;
+}
+
+.nav li {
+    padding: 5px 0;
+}
+
+nav li:hover {
+    background-color: #0350a0;
+}
+
+#burger-toggle:checked ~ nav {
+    top: 85px;
+}
+
+.drop-down-menu {
+    height: 0;
+    position: relative;
+    top: -100vh;
+
+    transition: all linear .2s;
+}
+
+.drop-down-menu > li {
+    background-color: #003a77;
+}
+
+.drop-down-menu a {
+    font-size: 12px;
+}
+
+label a {
+    cursor: pointer;
+}
+
+#drop-down-menu-toggle:checked ~ ul {
+    top: 0;
+    height: auto;
+    margin-top: 5px;
+}
+
+.nav li:has(#drop-down-menu-toggle:checked) {
+    padding-bottom: 0;
+}
+
+.drop-down-menu li:hover {
+    background-color: #004794;
+}
+
+/* Login */
+
+.login {
+    opacity: 0;
+    pointer-events: none;
+
+    background-color: rgba(0, 0, 0, 0.8);
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+
+    padding: 30px;
+}
+
+.login:target {
+    opacity: 1;
+    pointer-events: auto;
+    overflow-y: hidden;
+
+    transition: all linear .2s;
+}
+
+.login .wrapper {
+    position: relative;
+    margin: 0 auto;
+}
+
+.login form {
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 25px;
+}
+
+.close svg {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+}
+
+.close path {
+    fill: #0350a0;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    padding: 5px 5px;
+    border: solid 1px #0350a0;
+    border-radius: 50%;
+}
+
+.close:hover {
+    background-color: #0350a0;
+
+    transition: all linear .2s;
+}
+
+.close:hover path {
+    fill: #FFF;
+}
+
+.login h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 70%;
+    
+    color: #0350a0;
+    font-size: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fio {
+    margin-top: 0;
+}
+
+.consent input {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.consent {
+    flex-direction: row;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 15px;
+}
+
+.login input:not([type='submit'], [type='checkbox']) {
+    font-size: 14px;
+    color: #0350a0;
+
+    border: 0;
+    border-bottom: 3px solid #0350a0;
+    width: 100%;
+}
+
+.login input:focus, textarea:focus {
+    outline: none;
+    background-color: #ddeeff;
+}
+
+.login label {
+    color: #0350a0;
+}
+
+.message textarea {
+    border-radius: 10px;
+    border: 2px solid #0350a0;
+
+    padding: 5px;
+    font-size: 14px;
+
+    resize: vertical;
+    min-height: 20px;
+    height: 20px;
+    max-height: 80px;
+}
+
+.login input[type='submit'] {
+    background-color: #FFF;
+    border-radius: 20px;
+    border: 1px solid #0350a0;
+
+    color: #0350a0;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    display: block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.login input[type='submit']:hover {
+    background-color: #0350a0;
+    color: #FFF;
+
+    transition: all linear .2s;
+}
+
+p.error {
+    color: #f00;
+    font-size: 14px;
+}
+
+.form-status {
+    display: inline;
+    position: absolute;
+    border: 2px solid #0350a0;
+    border-radius: 20px;
+    padding: 5px 20px;
+    color: #0350a0;
+    font-weight: 500;
+    top: -50px;
+    background-color: #fff;
+    transition: .2s ease-in-out all;
+}
+
+.form-status.show {
+    top: 20px;
+}
+
+/* Footer */
+
+footer {
+    font-weight: 700;
+    
+    height: 20px;
+    padding: 10px 15px;
+
+    background-color: #0350a0;
+    color: #fff;
+}
+
+/* Планшеты */
+@media (min-width: 481px) {
+    .abitur-info {
+        padding: 20px 30px;
+    }
+
+    .applied {
+        font-size: 16px;
+    }
+}
+
+/* Ноутбуки */
+@media (min-width: 769px) {
+    .warning {
+        order: 0;
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
+
+    main {
+        margin: 0 auto;
+        
+        min-height: calc(100vh - 206px);
+        max-width: 960px;
+    }
+
+    /* Login */
+    .login h1 {
+        margin-bottom: 50px;
+        font-size: 32px;
+    }
+
+    .login form {
+        padding: 50px 80px;
+    }
+
+    .login input:not([type='submit']) {
+        font-size: 16px;
+    }
+
+    .login input[type='submit'] {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .close a {
+        cursor: pointer;
+    }
+
+    .close svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .login {
+        padding: 30px 300px;
+    }
+
+    /* Header */
+
+    header, footer {
+        padding: 20px 30px;
+    }
+
+    header {
+        margin-bottom: 20px;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+
+    /* Nav */
+
+    .burger {
+        display: none;
+    }
+
+    nav {
+        position: static;
+        z-index: inherit;
+        background-color: #0350a0;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .nav > li {
+        list-style: none;
+    }
+
+    .nav > li > a, label[for="drop-down-menu-toggle"] > a {
+        padding: 5px 20px;
+        border-radius: 20px;
+
+        color: #FFF;
+        text-decoration: none;
+
+        transition: all linear .2s;
+    }
+
+    .nav > li > a:hover, label[for="drop-down-menu-toggle"] > a:hover {
+        background-color: #FFF;
+        color: #0350a0;
+    }
+
+    /* Drop-Down-Menu */
+
+    .drop-down-menu {
+        flex-direction: column;
+        align-items: center;
+
+        background-color: #fff;
+        color: #0350a0;
+        
+        position: absolute;
+        
+        width: 157px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom: solid 1px;
+
+        display: none;
+    }
+
+    .drop-down-menu li {
+        list-style: none;
+        background-color: transparent;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .drop-down-menu a {
+        color: #0350a0;
+    }
+
+    .drop-down-menu li:hover {
+        color: #0350a0;
+        background-color: #fff;
+    }
+
+    .drop-down-menu li:hover > a {
+        text-decoration: underline;
+    }
+
+    #drop-down-menu-toggle:checked ~ ul {
+        display: flex;
+        top: 65px;
+    }
+
+    #drop-down-menu-toggle:checked ~ label > a {
+        background-color: #FFF;
+        color: #0350a0;
+
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+/* Мониторы */
+@media (min-width: 1280px) {
+    header h1 {
+        max-width: none;
+        font-size: 24px;
+    }
+
+    #drop-down-menu-toggle:checked ~ ul {
+        top: 56px;
+    }
+
+    .nav {
+        gap: 20px;
+    }
+
+    main {
+        min-height: calc(100vh - 194px);
+    }
+}
