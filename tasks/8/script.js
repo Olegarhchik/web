@@ -75,7 +75,7 @@ form.addEventListener('submit', (event) => {
     if (valid) {
         fields.forEach(field => localStorage.removeItem(field.name));
 
-        fetch('https://formcarry.com/some-endpoint', {
+        fetch('https://formcarry.com/s/dNxw4vzG5g8', {
             method: 'POST',
             body: new FormData(form),
         }).then(response => {
